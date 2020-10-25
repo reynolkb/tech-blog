@@ -3,7 +3,10 @@ const { Comment } = require('../../models');
 
 router.get('/', (req, res) => {
     Comment.findAll()
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbPostData => {
+            console.log(dbPostData)
+            return res.json(dbPostData)
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

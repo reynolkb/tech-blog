@@ -1,9 +1,10 @@
 const { User } = require('../models');
+const bcrypt = require('bcrypt');
 
 const userData = [
     {
-        username: 'lernatino',
-        email: 'lernatino@gmail.com',
+        username: 'kyle',
+        email: 'kyle@gmail.com',
         password: 'password'
     }
 ];

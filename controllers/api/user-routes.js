@@ -81,19 +81,23 @@ router.post('/login', (req, res) => {
             email: req.body.email
         }
     }).then(dbUserData => {
+        console.log(dbUserData);
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that email address!' });
             return;
         }
 
         const validPassword = dbUserData.checkPassword(req.body.password);
-
+        console.log(validPassword);
+        console.log(req.body.password);
         if (!validPassword) {
+            console.log('failed password');
             res.status(400).json({ message: 'Incorrect password!' });
             return;
         }
 
         req.session.save(() => {
+            console.log('hello session');
             // declare session variables
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;

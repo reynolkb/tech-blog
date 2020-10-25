@@ -6,9 +6,11 @@ const homeRoutes = require('./home-routes.js');
 
 router.use('/', homeRoutes);
 
+// router.use('/api/users', apiRoutes);
 router.use('/api', apiRoutes);
 
 router.use((req, res) => {
+    console.log('no routes hit');
     res.status(404).end();
 });
 
